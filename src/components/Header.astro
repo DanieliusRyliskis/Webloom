@@ -1,0 +1,73 @@
+<header class="sticky top-0 z-[1000]">
+    <nav class="bg-white flex flex-col flex-wrap lg:flex-row lg:items-center">
+        <div
+            class="flex justify-between items-center px-3 py-6 lg:grow lg:px-0"
+        >
+            <a class="lg:pl-6" href="#section1">
+                <!-- Logo -->
+                <picture>
+                    <source
+                        srcset="/svg/Logo.svg"
+                        media="(min-width: 1024px)"
+                    />
+                    <img
+                        src="/svg/Mobile_logo.svg"
+                        class="cursor-pointer"
+                        loading="lazy"
+                        id="logo"
+                    />
+                </picture>
+            </a>
+            <img
+                class="lg:hidden cursor-pointer"
+                src="/svg/Hamburger_menu.svg"
+                loading="lazy"
+                id="menuIcon"
+            />
+        </div>
+        <ul
+            class="overflow-hidden h-0 transition-[height] duration-[1s] ease-out lg:overflow-visible lg:h-fit lg:flex lg:justify-center lg:items-center lg:pr-6"
+            id="linkContainer"
+        >
+            <li class="py-0.5 px-2 w-fit lg:px-4 lg:py-4">
+                <a class="hover:text-header" href="#section2"
+                    >Apie Mus</a
+                >
+            </li>
+            <li class="py-0.5 px-2 w-fit lg:px-4 lg:py-4">
+                <a class="hover:text-header" href="#section3"
+                    >Planai</a
+                >
+            </li>
+            <li class="py-0.5 px-2 w-fit lg:px-4 lg:py-4">
+                <a class="hover:text-header" href="#section4"
+                    >Atsiliepimai</a
+                >
+            </li>
+            <li class="py-0.5 px-2 w-fit lg:px-4 lg:py-4">
+                <a
+                    class="merriweather-light rounded-md text-white bg-secondary inline-block cursor-pointer py-2 px-6 lg:py-2.5 lg:px-9
+                    lg:border-2 lg:border-secondary lg:hover:text-secondary lg:hover:bg-transparent lg:hover:duration-500 lg:hover:transition-colors lg:hover:ease-in-out"
+                    href="#section5">Kontaktai</a
+                >
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    const menu = document.getElementById('menuIcon');
+    let menuOpen = false;
+    const linkContainer = document.getElementById('linkContainer');
+
+    // Toggles Navbar On Mobile
+    menu.addEventListener('click', () => {
+        if (menuOpen) {
+            linkContainer.style.height = '0px';
+        } else if (!menuOpen) {
+            const linkContainerHeight = linkContainer.scrollHeight + 10 + 'px';
+            linkContainer.style.height = linkContainerHeight;
+        }
+        menuOpen = !menuOpen;
+    });
+</script>
